@@ -25,19 +25,20 @@ class TaskController extends Controller{
      * Save new task
      */
     public function store(Request $request){
+        // Validations the fields
         $request->validate([
             'title' => 'required|max:255',
             'description' => 'nullable',
             'due_date' => 'nullable|date',
         ]);
-
+        // Create register in the database
         Task::create([
             'title' => $request->title,
             'description' => $request->description,
             'is_done' => $request->has('is_done'),
             'due_date' => $request->due_date,
         ]);
-
+        // redirect to index with message of error 
         return redirect()->route('tasks.index')->with('success', 'Tarea creada correctamente');
     }
     /**

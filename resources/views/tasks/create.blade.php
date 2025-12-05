@@ -14,7 +14,7 @@
     <h1 class="fw-bold text-primary mb-4">Nueva Tarea</h1>
 
     <!-- set -->
-    <a href="{{ route('tasks.index') }}" class="btn btn-secondary mb-3">← Volver</a>
+    <a href="{{ route('tasks.index') }}" class="btn btn-secondary mb-3">Volver</a>
 
     <!-- form -->
     <div class="card shadow-sm">
