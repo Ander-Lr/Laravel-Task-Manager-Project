@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista de Tareas</title>
+@extends('layouts.app')
+@section('title', 'Lista de Tareas')
 
-    <!-- Bootstrap 5 CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
 
-<div class="container py-5">
+@section('content')
+<div class="container py-5 bg-light">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="fw-bold text-primary">Lista de Tareas</h1>
 
@@ -74,6 +68,6 @@
         </tbody>
     </table>
 </div>
+@endsection
 
-</body>
-</html>
+

@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Crear Tarea</title>
+@extends('layouts.app')
 
-    <!-- Bootstrap 5 CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
+@section('title', 'Crear Tareas')
 
-<div class="container py-5">
+@section('content')
+<div class="container py-5 bg-light">
 
     <h1 class="fw-bold text-primary mb-4">Nueva Tarea</h1>
 
@@ -66,6 +60,4 @@
         </div>
     </div>
 </div>
-
-</body>
-</html>
+@endsection
