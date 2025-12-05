@@ -27,9 +27,9 @@ class TaskController extends Controller{
     public function store(Request $request){
         // Validations the fields
         $request->validate([
-            'title' => 'required|max:255',
+            'title' => 'required|min:3|max:255',
             'description' => 'nullable',
-            'due_date' => 'nullable|date',
+            'due_date' => 'required|date|after_or_equal:today',
         ]);
         // Create register in the database
         Task::create([
@@ -59,9 +59,9 @@ class TaskController extends Controller{
     public function update(Request $request, $id){
         // Validate data
         $request->validate([
-            'title' => 'required|max:255',
+            'title' => 'required|min:3|max:255',
             'description' => 'nullable',
-            'due_date' => 'nullable|date'
+            'due_date' => 'required|date'
         ]);
         // Search the task in the bdd
         $task = Task::findOrFail($id);

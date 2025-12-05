@@ -20,6 +20,15 @@
     <div class="card shadow-sm">
         <div class="card-body">
             <form action="{{ route('tasks.store') }}" method="POST">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul class="mb-0">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 @csrf
 
                 <!-- tittle -->
