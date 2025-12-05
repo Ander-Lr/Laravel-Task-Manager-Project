@@ -57,3 +57,40 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## How to Run the Project
+
+Follow the steps below to properly run the application:
+
+1. Start Docker containers
+```bash
+cd docker
+docker compose up -d
+```
+
+Note: If needed, update the database credentials in the .env file before running the containers.
+2.	Install PHP dependencies (only required the first time)
+```bash
+composer install
+```
+3.	Run database migrations
+
+```bash
+php artisan migrate
+```
+4.	Start the Laravel development server
+
+```bash
+php artisan serve
+```
+
+5.	Open the application in the browser
+
+http://localhost:8000
+
+To stop Docker containers:
+
+```bash
+docker compose down
+```
+With these steps completed, the application will run successfully.
