@@ -81,8 +81,15 @@ class TaskController extends Controller{
     /**
      * Delete specify Task
      */
-    public function destroy(string $id)
-    {
-        //
+    public function destroy(string $id){
+        // search the task
+        $task = Task::findOrFail($id);
+
+        // Delete
+        $task->delete();
+
+        // Redirect of list with message
+        return redirect()->route('tasks.index')
+        ->with('success', 'Tarea eliminada correctamente');
     }
 }
