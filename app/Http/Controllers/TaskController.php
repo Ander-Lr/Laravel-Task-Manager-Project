@@ -50,14 +50,33 @@ class TaskController extends Controller{
     /**
      * Form for edit specify task
      */
-    public function edit(string $id){
-        //
+    public function edit(Task $task){
+        return view('tasks.edit', compact('task'));
     }
     /**
      * Upload Task
      */
-    public function update(Request $request, string $id){
-        //
+    public function update(Request $request, $id){
+        // Validate data
+        $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'nullable',
+            'due_date' => 'nullable|date'
+        ]);
+        // Search the task in the bdd
+        $task = Task::findOrFail($id);
+
+        // Update the data
+        $task->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'is_done' => $request->has('is_done'), // checkbox
+            'due_date' => $request->due_date,
+        ]);
+
+        // Redirect with message
+        return redirect()->route('tasks.index')->with('success', 'Tarea actualizada correctamente');
+
     }
     /**
      * Delete specify Task
